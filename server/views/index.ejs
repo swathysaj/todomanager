@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TODOManager</title>
+    <style>
+        body{
+            background-color: #0D66D0;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row justify-content-center mt-3">
+        <div class="col-lg-6 col-10">
+            <div class="card p-3 shadow-lg rounded">
+                <h1 class="display-4">TODOManager</h1>
+                <div class="card-body">
+                    <form action="/" method="post">
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Title</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Give it a title!" name="title">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Content</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="What is it about?" rows="3" name="content"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary float-right mb-2">Save TODO</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% todolist.forEach(function (todo) {%>
+        <div class="row justify-content-center mt-3">
+            <div class="col-lg-6 col-10">
+                <div class="card p-3 shadow rounded">
+                    <h3 class="text-muted"><%=todo.title%></h3>
+                    <div class="card-body">
+                        <p class="lead"><%=todo.content%></p>
+                        <form action="/" method="get">
+                            <!--<input type="text" name="id" value="" hidden><br>-->
+                            <button type="submit" data-id="<%= todo.id %>" class="btn btn-danger float-right mb-2 delete-button">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <%})%>
+
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src='/js/indexpage.js'></script>
+
+</body>
+</html>
